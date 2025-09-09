@@ -34,12 +34,7 @@ if 'show_pneumonia_advice' not in st.session_state:
 def load_my_model():
     try:
         # Ensure 'my_model.keras' is in the same directory as app.py
-        if not os.path.exists("my_model.keras"):
-           url = "https://drive.google.com/uc?id=1l4bqHs-ygVN6CUIImVNqD3FBT_p6XBkp"
-           gdown.download(url, "my_model.keras", quiet=False)
-
-# تحميل الموديل
-        model = keras.models.load_model("my_model.keras")
+           model = keras.models.load_model("D:\Projects\Deep Learning\ChestX_Ray\my_model.keras")
 
 
         return model

@@ -5,4 +5,4 @@ matplotlib
 seaborn
 scikit-learn
 tensorflow==2.20.0
-opencv-python
+opencv-python-headless

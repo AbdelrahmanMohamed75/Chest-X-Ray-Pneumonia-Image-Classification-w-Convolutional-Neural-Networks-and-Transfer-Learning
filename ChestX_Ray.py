@@ -4,6 +4,11 @@ from tensorflow import keras
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import cv2
+import os
+import gdown
+from tensorflow import keras
+
+# لو الملف مش موجود، نزّله من Google Drive
 
 # --- Streamlit Page Configuration ---
 st.set_page_config(
@@ -25,7 +30,14 @@ if 'show_pneumonia_advice' not in st.session_state:
 def load_my_model():
     try:
         # Ensure 'my_model.keras' is in the same directory as app.py
+        if not os.path.exists("my_model.keras"):
+            url = "https://drive.google.com/file/d/1l4bqHs-ygVN6CUIImVNqD3FBT_p6XBkp/view?usp=sharing"  # حط هنا الـ File ID الصحيح
+            gdown.download(url, "my_model.keras", quiet=False)
+
+# تحميل الموديل بعد ما يبقى موجود
         model = keras.models.load_model("my_model.keras")
+
+
         return model
     except Exception as e:
         st.error(f"Error loading the model: {e}. Please ensure 'my_model.keras' is in the same directory as 'app.py'.")
@@ -224,5 +236,6 @@ elif st.session_state.selected_page == "What to do if Pneumonia":
         st.info("Please go to the 'Pneumonia Detector' section to upload an image.")
         if st.button("Go to Pneumonia Detector", key="redirect_to_detector_btn_from_advice"):
             navigate_to_page("Pneumonia Detector")
+
 
 

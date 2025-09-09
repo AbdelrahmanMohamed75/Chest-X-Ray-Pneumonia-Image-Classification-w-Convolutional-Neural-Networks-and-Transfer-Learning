@@ -7,6 +7,9 @@ import cv2
 import os
 import gdown
 from tensorflow import keras
+import os
+import gdown
+from tensorflow import keras
 
 
 # لو الملف مش موجود في فولدر المشروع نزله من Google Drive
@@ -34,8 +37,20 @@ if 'show_pneumonia_advice' not in st.session_state:
 def load_my_model():
     try:
         # Ensure 'my_model.keras' is in the same directory as app.py
-           model = keras.models.load_model("D:\Projects\Deep Learning\ChestX_Ray\my_model.keras")
+        ODEL_PATH = "my_model.keras"
 
+# لو الموديل مش موجود في مجلد المشروع، نزله من Google Drive
+if not os.path.exists(MODEL_PATH):
+    print("⚠️ Model not found locally, downloading...")
+    url = "https://drive.google.com/uc?id=1l4bqHs-ygVN6CUIImVNqD3FBT_p6XBkp"
+    gdown.download(url, MODEL_PATH, quiet=False)
+
+# اتأكد إن الملف اتنزّل
+if os.path.exists(MODEL_PATH):
+    print("✅ Model is ready, loading now...")
+    model = keras.models.load_model(MODEL_PATH)
+else:
+    raise FileNotFoundError("❌ Model file was not downloaded! Check Google Drive link or permissions.")   
 
            return model
     except Exception as e:
@@ -235,6 +250,7 @@ elif st.session_state.selected_page == "What to do if Pneumonia":
         st.info("Please go to the 'Pneumonia Detector' section to upload an image.")
         if st.button("Go to Pneumonia Detector", key="redirect_to_detector_btn_from_advice"):
             navigate_to_page("Pneumonia Detector")
+
 
 
 

@@ -7,4 +7,4 @@ scikit-learn
 tensorflow==2.20.0
 opencv-python-headless
 gdown
-
+huggingface_hub

@@ -36,19 +36,20 @@ Pneumonia is a serious lung infection that can be life-threatening if not diagno
   -  Visualizations of samples and class imbalance.
 ## 2: Model Building (CNN & Transfer Learning)
 
-- **Deliverables**:
-  - Custom CNN :
-    - Built a baseline CNN model from scratch
-    - Used Conv2D, MaxPooling, Dropout, and Dense layers
-  - Transfer Learning :
-    - Used pre-trained models: DenseNet121, VGG16, ResNet50
-    - Fine-tuned final layers for pneumonia classification
-    - Added dropout layers to reduce overfitting
+- **Custom CNN**:
+  
+  - Built a baseline CNN model from scratch
+  - Used Conv2D, MaxPooling, Dropout, and Dense layers
+    
+- **Transfer Learning**:
+  - Used pre-trained models: DenseNet121, VGG16, ResNet50
+  - Fine-tuned final layers for pneumonia classification
+  - Added dropout layers to reduce overfitting
+- **Key Techniques**:
 
-  - Key Techniques :
-    - Early stopping and learning rate reduction callbacks
-    - Optimizer: Adam
-    - Loss: SparseCategoricalCrossentropy / CategoricalCrossentropy (depending on label encoding)
+  - Early stopping and learning rate reduction callbacks
+  - Optimizer: Adam
+  - Loss: SparseCategoricalCrossentropy / CategoricalCrossentropy (depending on label encoding)
 
 
 ## 3: Model Evaluation
@@ -63,25 +64,42 @@ Pneumonia is a serious lung infection that can be life-threatening if not diagno
 
 
 ## 4: Deployment
-- **Saved trained model (.keras / .h5)**:
-- **Can be deployed with Streamlit or Flask for real-time predictions**:
-- **Input: Chest X-ray image**:
-- **Output: Probability of Normal vs Pneumonia**:
+- Saved trained model (.keras / .h5):
+- Can be deployed with Streamlit or Flask for real-time predictions:
+- Input: Chest X-ray image:
+- Output: Probability of Normal vs Pneumonia:
+
+## 🛠️ Technologies Used
+- Python
+- TensorFlow / Keras
+- NumPy / Pandas
+- Matplotlib / Seaborn
+- Scikit-learn
+- Transfer Learning Models (DenseNet121, VGG16, ResNet50)
 
 
+## 🚀 How to Run
+1. Clone the repository:
+   ```bas
+   git clone https://github.com/AbdelrahmanMohamed75/ Chest_X_Ray_Pneumonia_CNN_Transfer_learning.git
+   cd  Chest_X_Ray_Pneumonia_CNN_Transfer_learning
+   ```
 
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the notebook:
+   ```bash
+   jupyter notebook Chest_X_Ray_Pneumonia_CNN_Transfer_learning.ipynb
+   ```
+---
+4.Try the app: [https://cardshield-app.streamlit.app/](https://xeqmlxsobfhj5qxxcjmxyp.streamlit.app/)
 
+## 👨‍💻 Author
+ Made with ❤️ by [Abdelrahman Mohamed Emam]
 
-
-
-
-
-
-
-
-
-
-
+Feel free to fork ⭐, contribute, or suggest improvements
 
 
 
